@@ -1,23 +1,3 @@
-function validateLogin() {
-    const username = document.getElementById('username').value.trim();
-    const contact = document.getElementById('contact').value.trim();
-    const error = document.getElementById('login-error');
-
-    if (username === "" || contact === "") {
-        error.textContent = "Please enter both name and contact!";
-        return;
-    }
-
-    // Store user
-    localStorage.setItem('currentUser', JSON.stringify({
-        name: username,
-        contact: contact
-    }));
-
-    // Start quiz
-    startQuiz();
-}
-
 function startQuiz() {
     const meta = JSON.parse(localStorage.getItem('mcqMeta'));
     let timeLeft = meta?.timeLimit || 60;
